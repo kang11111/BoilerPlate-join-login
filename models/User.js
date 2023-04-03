@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const userSchema = mongoose.Schema({ //schema 생성
+//schema 정의
+const userSchema = mongoose.Schema({
   name: {
     type: String,
     maxlength: 50
@@ -12,7 +13,7 @@ const userSchema = mongoose.Schema({ //schema 생성
   },
   password: {
     type: String,
-    minlength: 50
+    minlength: 5
   },
   lastname: {
     type: String,
@@ -29,8 +30,10 @@ const userSchema = mongoose.Schema({ //schema 생성
   tokenExp: { //token 유효기간 지정
     type: Number
   }
-})
+});
 
-const User = mongoose.model('User', userSchema) //생성한 schema를 model로 감쌈
+//model 생성. 생성한 schema를 model로 감쌈
+const User = mongoose.model('User', userSchema);
 
-module.exports = {User} //다른 곳에서도 쓸 수 있게 exports 함
+//다른 곳에서도 쓸 수 있게 exports 함
+module.exports = {User};
